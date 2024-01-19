@@ -1,0 +1,37 @@
+.index-page {
+  height: 100%;
+  background: linear-gradient(to bottom, #f5bccc, #ffffff 60%);
+  // #ede9fe
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-direction: column;
+
+  &__banner {
+    margin-top: -20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .image {
+      height: 640px;
+      width: 640px;
+    }
+  }
+  &__btn-group {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    align-items: center;
+
+    .btn {
+      flex: 1;
+      border-radius: 12px;
+    }
+
+    .normal-btn {
+      color: #1d1d2e;
+    }
+  }
+}

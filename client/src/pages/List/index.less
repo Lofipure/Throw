@@ -1,0 +1,38 @@
+.list-page {
+  height: 100%;
+
+  &__navbar {
+    background-color: var(--theme-color);
+    .at-nav-bar__title {
+      color: #fff;
+      font-size: 16PX;
+    }
+    .at-nav-bar__text {
+      font-size: 16PX;
+    }
+    .at-nav-bar__left-view {
+      background-color: transparent !important;
+    }
+  }
+
+  &__list {
+    margin-top: 8PX;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8PX;
+
+    .drink-item {
+      background: red;
+      width: calc(50% - 8PX);
+      border-radius: 8PX;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      &__image {
+        width: 100%;
+      }
+    }
+  }
+}
