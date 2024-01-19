@@ -2,12 +2,11 @@ import { PropsWithChildren } from "react";
 import "taro-ui/dist/style/index.scss";
 import "taro-ui/dist/style/components/icon.scss";
 import "./app.less";
-import Taro, { useLoad } from "@tarojs/taro";
+import Taro from "@tarojs/taro";
+
+Taro.cloud.init();
 
 function App({ children }: PropsWithChildren<any>) {
-  useLoad(() => {
-    Taro.cloud.init();
-  });
   return children;
 }
 

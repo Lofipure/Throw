@@ -1,10 +1,11 @@
 import { View, Image } from "@tarojs/components";
-import Taro from "@tarojs/taro";
+import Taro, { useLoad } from "@tarojs/taro";
 import classNames from "classnames";
 import { AtButton } from "taro-ui";
 // import logo from "@/assets/images/logo_2.png";
-import logo from '../../assets/images/logo_2.png';
+import logo from "../../assets/images/logo_2.png";
 import "./index.less";
+import { getDrinks } from "../../services";
 
 export default function Home() {
   const handleNavigateToList = () => {
@@ -18,6 +19,13 @@ export default function Home() {
       url: "/pages/Random/index",
     });
   };
+
+  useLoad(async () => {
+    const data = await getDrinks({
+      name: "test",
+    });
+    console.log("[🔧 Debug 🔧]", "data", data);
+  });
 
   return (
     <View className="index-page">
