@@ -1,5 +1,5 @@
-import { USER_INFO_KEY } from "@/constants";
 import Taro from "@tarojs/taro";
+import { USER_INFO_KEY } from "../constants";
 
 export const initUserInfo = async () => {
   const { userInfo } = await Taro.getUserInfo();
