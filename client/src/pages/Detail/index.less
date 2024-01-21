@@ -1,6 +1,7 @@
+@bgColor: #121f832b;
 .detail-page {
+  background: linear-gradient(to bottom, #121f83, #ffffff);
   height: 100%;
-  background: #fafafa;
 
   &__nav-icon {
     color: #fff;
@@ -9,6 +10,7 @@
 
   &__cover {
     width: 100%;
+    border-radius: 0 0 8PX 8PX;
   }
 
   &__banner {
@@ -21,13 +23,12 @@
 
   &__info {
     backdrop-filter: blur(5PX);
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: @bgColor;
     box-shadow: 0 3PX 8PX rgba(0, 0, 0, 0.04);
     margin: 0 12PX;
     padding: 8PX 12PX;
     border-radius: 8PX;
-    position: relative;
-    top: -5%;
+    margin-top: -40PX;
     display: flex;
     flex-direction: column;
     gap: 10PX;
@@ -41,6 +42,7 @@
       &__content {
         font-size: 1.2rem;
         font-weight: 500;
+        color: #1d1d2e;
       }
       &__icon {
         font-size: 1.3rem !important;
@@ -50,7 +52,7 @@
 
     .desc {
       font-size: 0.9rem;
-      color: #8c8c8c;
+      color: #fff;
     }
 
     .tag-list {
@@ -58,6 +60,88 @@
       flex-direction: row;
       gap: 0.7rem;
       flex-wrap: wrap;
+    }
+  }
+
+  &__attr {
+    display: flex;
+    flex-direction: column;
+    gap: 8PX;
+    margin: 0 12PX;
+    padding: 10PX 12PX;
+    border-radius: 8PX;
+    background-color: @bgColor;
+    box-shadow: 0 3PX 8PX rgba(0, 0, 0, 0.04);
+    margin-top: 12PX;
+
+    .attr-item {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8PX;
+
+      &__label {
+        display: flex;
+        align-items: center;
+        color: #1d1d2e;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  &__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8PX;
+    margin: 0 12PX;
+    padding: 10PX 12PX;
+    border-radius: 8PX;
+    background-color: @bgColor;
+    box-shadow: 0 3PX 8PX rgba(0, 0, 0, 0.04);
+    margin-top: 12PX;
+
+    .step-title {
+      color: #1d1d2e;
+      font-weight: 500;
+    }
+
+    .step-item {
+      font-size: 0.9rem;
+
+      &::before {
+        content: " ";
+        height: 4PX;
+        width: 4PX;
+        background-color: #1d1d2e;
+        border-radius: 100%;
+      }
+    }
+  }
+
+  &__operate {
+    position: absolute;
+    bottom: 24PX;
+    width: calc(100% - 24PX);
+    margin: 0 12PX;
+    .btn {
+      background-color: var(--theme-color);
+    }
+  }
+
+  .at-modal__container {
+    .content-simple {
+      display: flex;
+      justify-content: center;
+    }
+    .at-modal__content {
+      min-height: unset !important;
+    }
+    .at-modal__action {
+      button {
+        color: var(--theme-color);
+      }
     }
   }
 }

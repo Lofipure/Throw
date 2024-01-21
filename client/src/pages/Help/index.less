@@ -1,6 +1,5 @@
-.random-page {
+.help-page {
   height: 100%;
-  // background-color: var(--theme-color);
   background: linear-gradient(to bottom, #121f83 20%, #ffffff);
 
   &__navbar {
@@ -24,10 +23,31 @@
       font-weight: 500;
     }
   }
+  &__banner {
+    width: 100%;
+    // height: 50PX;
+    display: flex;
+    justify-content: center;
+  }
   &__content {
+    margin: 12PX 24PX;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    flex-direction: column;
+    color: #ffffff;
+    gap: 18PX;
+
+    .block {
+      display: flex;
+      flex-direction: column;
+      gap: 4PX;
+      .title {
+        font-weight: 500;
+      }
+      .content {
+        color: #fff;
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { View, Image } from "@tarojs/components";
+import { View, Image, Text } from "@tarojs/components";
 import Taro, { useLoad } from "@tarojs/taro";
 import { AtNavBar, AtTag, AtIcon } from "taro-ui";
 import { renderCustomHeader } from "../../utils/render";
@@ -26,14 +26,17 @@ const List: FC = () => {
   return (
     <View className="list-page">
       <View className="list-page__header">
-        {renderCustomHeader()}
-        <AtNavBar
-          leftIconType="chevron-left"
-          color="#fff"
-          className="list-page__navbar"
-          onClickLeftIcon={gotoHome}
-          title="👋 公主请选酒"
-        />
+        {renderCustomHeader({
+          useThemeColor: false
+        })}
+        <View className="list-page__navbar">
+          <AtIcon
+            value="chevron-left"
+            onClick={gotoHome}
+            className="icon"
+          ></AtIcon>
+          <Text className="title">{`🤖 throw new Error('')`}</Text>
+        </View>
       </View>
       <View className="list-page__list">
         {drinkList.map((item, index) => {

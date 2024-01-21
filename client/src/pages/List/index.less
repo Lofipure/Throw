@@ -1,24 +1,36 @@
 .list-page {
   height: 100%;
-  background: #fafafa;
+  // background-color: var(--theme-color);
+  background: linear-gradient(to bottom, #121f83 20%, #ffffff);
+  overflow: scroll;
+  margin-bottom: 24PX;
 
   &__header {
     position: sticky;
     top: 0;
+    z-index: 10;
+    backdrop-filter: blur(8PX);
+    background-color: rgba(255, 255, 255, 0.2);
   }
 
   &__navbar {
-    background-color: var(--theme-color);
-    .at-nav-bar__title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8PX 0;
+    .icon {
+      position: absolute;
+      top: 8PX;
+      left: 8PX;
+      height: 100%;
+      color: #fff;
+    }
+
+    .title {
       color: #fff;
       font-size: 16PX;
       font-weight: 500;
-    }
-    .at-nav-bar__text {
-      font-size: 16PX;
-    }
-    .at-nav-bar__left-view {
-      background-color: transparent !important;
     }
   }
 
@@ -28,11 +40,12 @@
     flex-wrap: wrap;
     justify-content: center;
     margin: 12PX 6PX;
-    margin-bottom: 0PX;
+    margin-bottom: 24PX;
     gap: 8PX;
 
     .item {
-      background: #fff;
+      backdrop-filter: saturate(200%) blur(8PX);
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: 8PX;
       padding: 12PX 12PX;
       overflow: hidden;
@@ -83,7 +96,8 @@
           .tag {
             padding: 0 12PX;
             font-size: 12PX;
-            // background: red;
+            // background-color: var(--theme-color);
+            // border-color: var(--theme-color);
             // color: #fff;
           }
         }

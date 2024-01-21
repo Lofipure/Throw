@@ -1,6 +1,6 @@
 .index-page {
   height: 100%;
-  background: linear-gradient(to bottom, #f5bccc, #ffffff 60%);
+  background: linear-gradient(to bottom, #121f83 20%, #ffffff);
   // #ede9fe
   display: flex;
   align-items: center;
@@ -19,6 +19,7 @@
       width: 640px;
     }
   }
+
   &__btn-group {
     display: flex;
     flex-direction: row;
@@ -31,11 +32,19 @@
     }
 
     .normal-btn {
-      color: #1d1d2e;
+      color: #121f83;
 
       .at-loading__ring {
         border-color: var(--theme-color) transparent transparent transparent;
       }
     }
+  }
+
+  &__help-text {
+    position: absolute;
+    bottom: 24PX;
+    color: var(--theme-color);
+    text-decoration: underline;
+    font-weight: 500;
   }
 }

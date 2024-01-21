@@ -6,6 +6,7 @@ export default defineAppConfig({
     "pages/List/index",
     "pages/Random/index",
     "pages/Detail/index",
+    "pages/Help/index"
   ],
   window: {
     backgroundTextStyle: "light",
