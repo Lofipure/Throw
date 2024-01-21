@@ -2,12 +2,15 @@ import { View, Image } from "@tarojs/components";
 import Taro, { useLoad } from "@tarojs/taro";
 import classNames from "classnames";
 import { AtButton } from "taro-ui";
-// import logo from "@/assets/images/logo_2.png";
 import logo from "../../assets/images/logo_2.png";
 import "./index.less";
-import { getDrinks } from "../../services";
+import { useState } from "react";
+import { initDrinkList } from "../../utils/drinks";
+import Loading from "../../components/Loading";
 
 export default function Home() {
+  const [loading, setLoading] = useState<boolean>(false);
+
   const handleNavigateToList = () => {
     Taro.navigateTo({
       url: "/pages/List/index",
@@ -20,14 +23,19 @@ export default function Home() {
     });
   };
 
-  useLoad(async () => {
-    const data = await getDrinks({
-      name: "test",
-    });
-    console.log("[🔧 Debug 🔧]", "data", data);
+  const getAllDrinks = async () => {
+    setLoading(true);
+    await initDrinkList();
+    setLoading(false);
+  };
+
+  useLoad(() => {
+    getAllDrinks();
   });
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <View className="index-page">
       <View className="index-page__banner">
         <Image src={logo} className="image" />
@@ -38,7 +46,7 @@ export default function Home() {
         </AtButton>
         <AtButton
           onClick={handleNavigateToRandom}
-          className={classNames("btn", "normal-ben")}
+          className={classNames("btn", "normal-btn")}
         >
           🎁 开盲盒？
         </AtButton>

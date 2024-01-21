@@ -1,11 +1,18 @@
 .list-page {
   height: 100%;
+  background: #fafafa;
+
+  &__header {
+    position: sticky;
+    top: 0;
+  }
 
   &__navbar {
     background-color: var(--theme-color);
     .at-nav-bar__title {
       color: #fff;
       font-size: 16PX;
+      font-weight: 500;
     }
     .at-nav-bar__text {
       font-size: 16PX;
@@ -16,22 +23,70 @@
   }
 
   &__list {
-    margin-top: 8PX;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    margin: 12PX 6PX;
+    margin-bottom: 0PX;
     gap: 8PX;
 
-    .drink-item {
-      background: red;
-      width: calc(50% - 8PX);
+    .item {
+      background: #fff;
       border-radius: 8PX;
+      padding: 12PX 12PX;
       overflow: hidden;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      gap: 12PX;
+      box-shadow: 0 3PX 8PX rgba(0, 0, 0, 0.04);
 
-      &__image {
-        width: 100%;
+      &__cover {
+        width: 20%;
+        border-radius: 8PX;
+        height: 74PX;
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 4PX;
+
+        .title {
+          font-size: 16PX;
+          font-weight: 500;
+
+          display: flex;
+          align-items: center;
+          gap: 6PX;
+
+          .icon {
+            font-size: 18PX !important;
+            color: #ffd700;
+          }
+        }
+
+        .desc {
+          color: #8c8c8c;
+          font-size: 12PX;
+          font-weight: 400;
+        }
+
+        .tag-list {
+          margin-top: 4PX;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 8PX;
+          .tag {
+            padding: 0 12PX;
+            font-size: 12PX;
+            // background: red;
+            // color: #fff;
+          }
+        }
       }
     }
   }

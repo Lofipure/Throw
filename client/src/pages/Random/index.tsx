@@ -18,7 +18,9 @@ export default function Random() {
         onClickLeftIcon={gotoHome}
         title="盲盒"
       />
-      Random
+      <View className="random-page__content">
+      🤔 盲盒功能还在开发中，敬请期待......
+      </View>
     </View>
   );
 }

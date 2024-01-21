@@ -1,17 +1,63 @@
 .detail-page {
   height: 100%;
+  background: #fafafa;
 
-  &__navbar {
-    background-color: var(--theme-color);
-    .at-nav-bar__title {
-      color: #fff;
-      font-size: 16px;
+  &__nav-icon {
+    color: #fff;
+    margin-left: 5PX;
+  }
+
+  &__cover {
+    width: 100%;
+  }
+
+  &__banner {
+    position: relative;
+  }
+
+  &__header {
+    position: absolute;
+  }
+
+  &__info {
+    backdrop-filter: blur(5PX);
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 3PX 8PX rgba(0, 0, 0, 0.04);
+    margin: 0 12PX;
+    padding: 8PX 12PX;
+    border-radius: 8PX;
+    position: relative;
+    top: -5%;
+    display: flex;
+    flex-direction: column;
+    gap: 10PX;
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12PX;
+
+      &__content {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      &__icon {
+        font-size: 1.3rem !important;
+        color: #ffd700;
+      }
     }
-    .at-nav-bar__text {
-      font-size: 16px;
+
+    .desc {
+      font-size: 0.9rem;
+      color: #8c8c8c;
     }
-    .at-nav-bar__left-view {
-      background-color: transparent !important;
+
+    .tag-list {
+      display: flex;
+      flex-direction: row;
+      gap: 0.7rem;
+      flex-wrap: wrap;
     }
   }
 }
