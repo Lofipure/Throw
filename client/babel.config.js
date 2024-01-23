@@ -6,5 +6,15 @@ module.exports = {
       framework: 'react',
       ts: true
     }]
-  ]
+  ],
+  plugins: [
+    [
+      'module-resolver',
+      {
+        alias: {
+          '@': './src',
+        },
+      },
+    ],
+  ],
 }

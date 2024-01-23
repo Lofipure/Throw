@@ -1,11 +1,14 @@
-import { FC, useState } from "react";
-import { View, Image, Text } from "@tarojs/components";
-import Taro, { useLoad } from "@tarojs/taro";
-import { AtNavBar, AtTag, AtIcon } from "taro-ui";
-import { renderCustomHeader } from "../../utils/render";
-import "./index.less";
-import { IDrink } from "../../../types";
-import { getDrinkList } from "../../utils/drinks";
+import { FC, useState } from 'react';
+
+import { Image, Text, View } from '@tarojs/components';
+import Taro, { useLoad } from '@tarojs/taro';
+import { AtIcon, AtTag } from 'taro-ui';
+import { IDrink } from 'types';
+
+import { getDrinkImage, getDrinkList } from '@/utils/drinks';
+import { renderCustomHeader } from '@/utils/render';
+
+import './index.less';
 
 const List: FC = () => {
   const [drinkList, setDrinkList] = useState<IDrink[]>([]);
@@ -27,14 +30,10 @@ const List: FC = () => {
     <View className="list-page">
       <View className="list-page__header">
         {renderCustomHeader({
-          useThemeColor: false
+          useThemeColor: false,
         })}
         <View className="list-page__navbar">
-          <AtIcon
-            value="chevron-left"
-            onClick={gotoHome}
-            className="icon"
-          ></AtIcon>
+          <AtIcon value="chevron-left" onClick={gotoHome} className="icon"></AtIcon>
           <Text className="title">{`🤖 throw new Error('')`}</Text>
         </View>
       </View>
@@ -42,17 +41,8 @@ const List: FC = () => {
         {drinkList.map((item, index) => {
           const { cover, name, desc, tags, is_spec } = item;
           return (
-            <View
-              className="item"
-              key={index}
-              onClick={() => handleGotoDetail(item)}
-            >
-              <Image
-                src={cover}
-                className="item__cover"
-                mode="widthFix"
-                fadeIn
-              />
+            <View className="item" key={index} onClick={() => handleGotoDetail(item)}>
+              <Image src={getDrinkImage(cover)} className="item__cover" mode="widthFix" fadeIn />
               <View className="item__content">
                 <View className="title">
                   {name}

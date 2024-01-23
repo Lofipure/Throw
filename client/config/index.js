@@ -25,7 +25,7 @@ const config = {
   },
   mini: {
     postcss: {
-      pxtransform: {
+      PXtransform: {
         enable: true,
         config: {
 

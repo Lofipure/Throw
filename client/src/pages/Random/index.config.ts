@@ -1,4 +1,4 @@
 export default definePageConfig({
-  navigationBarTitleText: "盲盒",
-  navigationStyle: "custom",
+  navigationBarTitleText: '盲盒',
+  navigationStyle: 'custom',
 });

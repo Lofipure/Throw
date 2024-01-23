@@ -1,31 +1,34 @@
-import { View, Image, Text } from "@tarojs/components";
-import Taro, { useLoad } from "@tarojs/taro";
-import classNames from "classnames";
-import { AtButton } from "taro-ui";
-import logo from "../../assets/images/logo_white.png";
-import "./index.less";
-import { useState } from "react";
-import { initDrinkList } from "../../utils/drinks";
-import Loading from "../../components/Loading";
+import { useState } from 'react';
+
+import { Image, Text, View } from '@tarojs/components';
+import Taro, { useLoad } from '@tarojs/taro';
+import classNames from 'classnames';
+import { AtButton } from 'taro-ui';
+
+import logo from '@/assets/images/logo_white.png';
+import Loading from '@/components/Loading';
+import { initDrinkList } from '@/utils/drinks';
+
+import './index.less';
 
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleNavigateToList = () => {
     Taro.navigateTo({
-      url: "/pages/List/index",
+      url: '/pages/List/index',
     });
   };
 
   const handleNavigateToRandom = () => {
     Taro.navigateTo({
-      url: "/pages/Random/index",
+      url: '/pages/Random/index',
     });
   };
 
   const handleNavigateToHelp = () => {
     Taro.navigateTo({
-      url: "/pages/Help/index",
+      url: '/pages/Help/index',
     });
   };
 
@@ -50,10 +53,7 @@ export default function Home() {
         <AtButton type="primary" onClick={handleNavigateToList} className="btn">
           {`🍹 new Object()`}
         </AtButton>
-        <AtButton
-          onClick={handleNavigateToRandom}
-          className={classNames("btn", "normal-btn")}
-        >
+        <AtButton onClick={handleNavigateToRandom} className={classNames('btn', 'normal-btn')}>
           {`🎁 Math.random()`}
         </AtButton>
       </View>

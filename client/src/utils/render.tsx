@@ -1,6 +1,7 @@
-import { View } from "@tarojs/components";
-import Taro from "@tarojs/taro";
-import { THEME_COLOR } from "../constants";
+import { View } from '@tarojs/components';
+import Taro from '@tarojs/taro';
+
+import { THEME_COLOR } from '@/constants';
 
 export const renderCustomHeader = (params?: { useThemeColor?: boolean }) => {
   const { useThemeColor = true } = params ?? {};
