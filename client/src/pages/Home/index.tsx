@@ -47,7 +47,7 @@ export default function Home() {
   ) : (
     <View className="index-page">
       <View className="index-page__banner">
-        <Image src={logo} className="image" />
+        <Image src={logo} className="image" mode="widthFix" />
       </View>
       <View className="index-page__btn-group">
         <AtButton type="primary" onClick={handleNavigateToList} className="btn">

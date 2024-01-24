@@ -1,15 +1,14 @@
 .list-page {
   height: 100%;
-  // background-color: var(--theme-color);
   background: linear-gradient(to bottom, #121f83 20%, #ffffff);
   overflow: scroll;
-  margin-bottom: 24PX;
+  margin-bottom: 24rpx;
 
   &__header {
     position: sticky;
     top: 0;
     z-index: 10;
-    backdrop-filter: blur(8PX);
+    backdrop-filter: blur(9rpx);
     background-color: rgba(255, 255, 255, 0.2);
   }
 
@@ -18,18 +17,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8PX 0;
+    padding: 15rpx 0;
     .icon {
       position: absolute;
-      top: 8PX;
-      left: 8PX;
+      top: 15rpx;
+      left: 15rpx;
       height: 100%;
       color: #fff;
     }
 
     .title {
       color: #fff;
-      font-size: 16PX;
+      font-size: 1rem;
       font-weight: 500;
     }
   }
@@ -39,66 +38,63 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 12PX 6PX;
-    margin-bottom: 24PX;
-    gap: 8PX;
+    margin: 22rpx 10rpx 43rpx;
+    gap: 15rpx;
 
     .item {
-      backdrop-filter: saturate(200%) blur(8PX);
+      backdrop-filter: saturate(200%) blur(15px);
       background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 8PX;
-      padding: 12PX 12PX;
+      border-radius: 15rpx;
+      padding: 21rpx 21rpx;
       overflow: hidden;
       display: flex;
       flex-direction: row;
       align-items: center;
       width: 100%;
-      gap: 12PX;
-      box-shadow: 0 3PX 8PX rgba(0, 0, 0, 0.04);
+      gap: 21rpx;
+      box-shadow: 0 6rpx 15rpx rgba(0, 0, 0, 0.04);
 
       &__cover {
         width: 20%;
-        border-radius: 8PX;
-        height: 74PX;
+        border-radius: 15rpx;
+        height: 133rpx;
       }
 
       &__content {
         display: flex;
         flex-direction: column;
-        gap: 4PX;
+        gap: 8rpx;
 
         .title {
-          font-size: 16PX;
+          // font-size: 30rpx;
+          font-size: 1rem;
           font-weight: 500;
 
           display: flex;
           align-items: center;
-          gap: 6PX;
+          gap: 11rpx;
 
           .icon {
-            font-size: 18PX !important;
+            font-size: 32px !important;
             color: #ffd700;
           }
         }
 
         .desc {
           color: #8c8c8c;
-          font-size: 12PX;
+          font-size: 0.85rem;
           font-weight: 400;
         }
 
         .tag-list {
-          margin-top: 4PX;
+          margin-top: 7rpx;
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
-          gap: 8PX;
+          gap: 15rpx;
           .tag {
-            padding: 0 12PX;
-            font-size: 12PX;
-            // background-color: var(--theme-color);
-            // border-color: var(--theme-color);
-            // color: #fff;
+            padding: 0 18rpx;
+            font-size: 0.8rem;
           }
         }
       }

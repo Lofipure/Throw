@@ -32,7 +32,7 @@ export default function Help() {
         <View className="block">
           <Text className="title">关于王子恒：</Text>
           <Text>👋 如果你偶然发现了这个小程序，那么这个人很神秘，没有留下任何痕迹。</Text>
-          <Text>🥸 但是祝你爱憎分明一生坦诚。</Text>
+          {/* <Text>🥸 但是祝你爱憎分明一生坦诚。</Text> */}
         </View>
       </View>
     </View>
