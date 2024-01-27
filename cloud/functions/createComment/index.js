@@ -18,19 +18,23 @@ wx_server_sdk_1.default.init({
     env: wx_server_sdk_1.default.DYNAMIC_CURRENT_ENV,
 });
 const db = wx_server_sdk_1.default.database();
-const main = () => __awaiter(void 0, void 0, void 0, function* () {
-    var _a, _b;
-    try {
-        const list = (_b = (_a = ((yield db.collection("drinks").get()))) === null || _a === void 0 ? void 0 : _a.data) !== null && _b !== void 0 ? _b : [];
-        return {
-            code: 1,
-            data: list,
-        };
-    }
-    catch (e) {
+const main = (params) => __awaiter(void 0, void 0, void 0, function* () {
+    const { OPENID } = wx_server_sdk_1.default.getWXContext();
+    if (OPENID !== params.open_id) {
         return {
             code: 0,
+            errMsg: "登录态不一致，你到底是什么人！",
         };
     }
+    const result = yield db.collection("comments").add({
+        data: Object.assign(Object.assign({}, params), { create_time: new Date(), update_time: new Date() }),
+    });
+    console.log("[🔧 Debug 🔧]", "result", result);
+    return {
+        code: 1,
+        data: {
+            result: true,
+        },
+    };
 });
 exports.main = main;

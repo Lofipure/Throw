@@ -4,14 +4,14 @@ cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV as any,
 });
 
-const db = cloud.database();
-
-const main = async () => {
+export const main = async () => {
   try {
-    const list = ((await db.collection("drinks").get()) as any)?.data ?? [];
+    const { OPENID } = cloud.getWXContext();
     return {
       code: 1,
-      data: list,
+      data: {
+        open_id: OPENID,
+      },
     };
   } catch (e) {
     return {
@@ -19,5 +19,3 @@ const main = async () => {
     };
   }
 };
-
-export { main };

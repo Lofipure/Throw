@@ -1,20 +1,27 @@
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useState } from 'react';
 
-import { Image, Text, View } from '@tarojs/components';
+import { Image, View } from '@tarojs/components';
 import { URLSearchParams } from '@tarojs/runtime';
 import Taro, { useLoad } from '@tarojs/taro';
-import { AtButton, AtIcon, AtModal, AtTag } from 'taro-ui';
-import { AtRate } from 'taro-ui';
+import { AtButton, AtIcon, AtModal } from 'taro-ui';
 import { IDrink } from 'types';
 
 import Loading from '@/components/Loading';
 import { getDrinkImage, getDrinkList } from '@/utils/drinks';
 import { renderCustomHeader } from '@/utils/render';
 
+// import { getUserInfo } from '@/utils/userInfo';
+import DrinkBaseInfo from './components/DrinkBaseInfo';
+
 import './index.less';
 
+// const userInfo = getUserInfo();
+
 export default function Detail() {
+  // const [loading, setLoading] = useState<boolean>(false);
   const [drinkDetail, setDrinkDetail] = useState<IDrink | undefined>(undefined);
+  // const [commentList, setCommentList] = useState<IComment[]>();
+  // const [myComment, setMyComment] = useState<IComment | undefined>(undefined);
   const [open, setOpen] = useState<boolean>(false);
 
   const gotoList = () => {
@@ -25,17 +32,36 @@ export default function Detail() {
     setOpen(true);
   };
 
-  useLoad(() => {
+  // const getComments = async (id: string): Promise<IComment[]> =>
+  //   (
+  //     await services.getComments({
+  //       drinkId: id,
+  //     })
+  //   )?.data ?? [];
+
+  useLoad(async () => {
     const id = new URLSearchParams(location.search).get('id');
     if (id) {
       const drink = getDrinkList().find((item) => item._id === id);
       setDrinkDetail(drink);
+      // setLoading(true);
+      // const drink = getDrinkList().find((item) => item._id === id);
+      // setDrinkDetail(drink);
+
+      // const list = (await getComments(id)).filter((item) => item.open_id !== userInfo.openId);
+
+      // setCommentList(list);
+
+      // const myComment = list.find((item) => item.open_id === userInfo.openId);
+      // setMyComment(myComment);
+
+      // setLoading(false);
     }
   });
 
-  const content = useMemo(
-    () =>
-      drinkDetail ? (
+  return (
+    <View className="detail-page">
+      {drinkDetail ? (
         <Fragment>
           <View className="detail-page__banner">
             <View className="detail-page__header">
@@ -46,43 +72,17 @@ export default function Detail() {
             </View>
             <Image src={getDrinkImage(drinkDetail.cover)} mode="widthFix" className="detail-page__cover" />
           </View>
-          <View className="detail-page__info">
-            <View className="title">
-              <Text className="title__content">{drinkDetail.name}</Text>
-              {drinkDetail.is_spec ? <AtIcon value="star-2" className="title__icon" /> : null}
-            </View>
-            <View className="desc">
-              <Text>{drinkDetail.desc}</Text>
-            </View>
-            <View className="tag-list">
-              {drinkDetail.tags.map((tag) => (
-                <AtTag className="tag">{tag}</AtTag>
-              ))}
-            </View>
-          </View>
-          <View className="detail-page__attr">
-            <View className="attr-item">
-              <View className="attr-item__label">🥵 好喝不?</View>
-              <AtRate className="attr-item__value" max={5} value={drinkDetail.attr.taste} />
-            </View>
-            <View className="attr-item">
-              <View className="attr-item__label">😍 好看不?</View>
-              <AtRate className="attr-item__value" max={5} value={drinkDetail.attr.beauty} />
-            </View>
-            <View className="attr-item">
-              <View className="attr-item__label">🤤 上头不?</View>
-              <AtRate className="attr-item__value" max={5} value={drinkDetail.attr.alcohol} />
-            </View>
-          </View>
-          <View className="detail-page__steps">
-            <View className="step-title">
-              <Text>🤪 咋做捏～</Text>
-            </View>
-            {drinkDetail.steps.map((step, index) => (
-              <View key={index} className="step-item">
-                <Text>{step}</Text>
-              </View>
-            ))}
+          <View className="detail-page__content">
+            <DrinkBaseInfo drink={drinkDetail} />
+            {/* <View className="detail-page__comment-info">
+              {loading ? (
+                <Loading />
+              ) : (
+                <Fragment>
+                  <Comment drink={drinkDetail} myComment={myComment} />
+                </Fragment>
+              )}
+            </View> */}
           </View>
           <View className="detail-page__operate">
             <AtButton type="primary" className="btn" onClick={handleSubmit}>
@@ -91,14 +91,8 @@ export default function Detail() {
           </View>
         </Fragment>
       ) : (
-        <Loading></Loading>
-      ),
-    [drinkDetail],
-  );
-
-  return (
-    <View className="detail-page">
-      {content}
+        <Loading />
+      )}
       <AtModal isOpened={open} confirmText="确认" onConfirm={() => setOpen(false)} content="下单成功，请轻轻拍打身旁的王子恒。"></AtModal>
     </View>
   );

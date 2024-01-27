@@ -6,10 +6,13 @@ import { AtActivityIndicator } from 'taro-ui';
 
 import { THEME_COLOR } from '@/constants';
 
-const Loading: FC = () => {
+interface ILoadingProps {
+  size?: number;
+}
+const Loading: FC<ILoadingProps> = ({ size = 50 }) => {
   return (
     <View>
-      <AtActivityIndicator mode="center" color={THEME_COLOR} size={50} />
+      <AtActivityIndicator mode="center" color={THEME_COLOR} size={size} />
     </View>
   );
 };

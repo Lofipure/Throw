@@ -32,14 +32,10 @@ export default function Home() {
     });
   };
 
-  const getAllDrinks = async () => {
+  useLoad(async () => {
     setLoading(true);
     await initDrinkList();
     setLoading(false);
-  };
-
-  useLoad(() => {
-    getAllDrinks();
   });
 
   return loading ? (

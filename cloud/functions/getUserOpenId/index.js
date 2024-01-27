@@ -17,14 +17,14 @@ const wx_server_sdk_1 = __importDefault(require("wx-server-sdk"));
 wx_server_sdk_1.default.init({
     env: wx_server_sdk_1.default.DYNAMIC_CURRENT_ENV,
 });
-const db = wx_server_sdk_1.default.database();
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
-    var _a, _b;
     try {
-        const list = (_b = (_a = ((yield db.collection("drinks").get()))) === null || _a === void 0 ? void 0 : _a.data) !== null && _b !== void 0 ? _b : [];
+        const { OPENID } = wx_server_sdk_1.default.getWXContext();
         return {
             code: 1,
-            data: list,
+            data: {
+                open_id: OPENID,
+            },
         };
     }
     catch (e) {

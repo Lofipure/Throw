@@ -1,4 +1,5 @@
 @bgColor: #121f832b;
+
 .detail-page {
   background: linear-gradient(to bottom, #121f83, #ffffff);
   height: 100%;
@@ -15,104 +16,16 @@
   }
 
   &__banner {
-    position: relative;
+    position: sticky;
+    top: 0;
   }
 
   &__header {
     position: absolute;
   }
 
-  &__info {
-    backdrop-filter: blur(9rpx);
-    background-color: @bgColor;
-    box-shadow: 0 6rpx 15rpx rgba(0, 0, 0, 0.04);
-    margin: -70rpx 22rpx 0;
-    padding: 15rpx 22rpx;
-    border-radius: 15rpx;
-    display: flex;
-    flex-direction: column;
-    gap: 18rpx;
-
-    .title {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 22rpx;
-
-      &__content {
-        font-size: 1.2rem;
-        font-weight: 500;
-        color: #1d1d2e;
-      }
-      &__icon {
-        font-size: 1.3rem !important;
-        color: #ffd700;
-      }
-    }
-
-    .desc {
-      font-size: 0.9rem;
-      color: #fff;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-direction: row;
-      gap: 0.7rem;
-      flex-wrap: wrap;
-    }
-  }
-
-  &__attr {
-    display: flex;
-    flex-direction: column;
-    gap: 15rpx;
-    margin: 0 22rpx;
-    padding: 18rpx 22rpx;
-    border-radius: 15rpx;
-    background-color: @bgColor;
-    box-shadow: 0 6rpx 15rpx rgba(0, 0, 0, 0.04);
-    margin-top: 22rpx;
-
-    .attr-item {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 15rpx;
-
-      &__label {
-        display: flex;
-        align-items: center;
-        color: #1d1d2e;
-        font-size: 0.9rem;
-      }
-    }
-  }
-
-  &__steps {
-    display: flex;
-    flex-direction: column;
-    gap: 15rpx;
-    margin: 0 22rpx;
-    padding: 18rpx 22rpx;
-    border-radius: 15rpx;
-    background-color: @bgColor;
-    box-shadow: 0 6rpx 15rpx rgba(0, 0, 0, 0.04);
-    margin-top: 22rpx;
-
-    .step-title {
-      color: #1d1d2e;
-      font-weight: 500;
-    }
-
-    .step-item {
-      font-size: 0.9rem;
-    }
-  }
-
   &__operate {
+    z-index: 10;
     position: absolute;
     bottom: 43rpx;
     width: calc(100% - 43rpx);
@@ -120,6 +33,25 @@
     .btn {
       background-color: var(--theme-color);
     }
+  }
+
+  &__comment-info {
+    backdrop-filter: blur(9rpx);
+    background-color: @bgColor;
+    box-shadow: 0 6rpx 15rpx rgba(0, 0, 0, 0.04);
+    margin: 0 22rpx;
+    padding: 15rpx 22rpx;
+    border-radius: 15rpx;
+    z-index: 10;
+    min-height: 80rpx;
+  }
+
+  &__content {
+    margin-top: -70rpx;
+    display: flex;
+    flex-direction: column;
+    gap: 22rpx;
+    margin-bottom: 152rpx;
   }
 
   .at-modal__container {
