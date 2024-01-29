@@ -10,18 +10,12 @@ import Loading from '@/components/Loading';
 import { getDrinkImage, getDrinkList } from '@/utils/drinks';
 import { renderCustomHeader } from '@/utils/render';
 
-// import { getUserInfo } from '@/utils/userInfo';
 import DrinkBaseInfo from './components/DrinkBaseInfo';
 
 import './index.less';
 
-// const userInfo = getUserInfo();
-
 export default function Detail() {
-  // const [loading, setLoading] = useState<boolean>(false);
   const [drinkDetail, setDrinkDetail] = useState<IDrink | undefined>(undefined);
-  // const [commentList, setCommentList] = useState<IComment[]>();
-  // const [myComment, setMyComment] = useState<IComment | undefined>(undefined);
   const [open, setOpen] = useState<boolean>(false);
 
   const gotoList = () => {
@@ -32,30 +26,11 @@ export default function Detail() {
     setOpen(true);
   };
 
-  // const getComments = async (id: string): Promise<IComment[]> =>
-  //   (
-  //     await services.getComments({
-  //       drinkId: id,
-  //     })
-  //   )?.data ?? [];
-
   useLoad(async () => {
     const id = new URLSearchParams(location.search).get('id');
     if (id) {
       const drink = getDrinkList().find((item) => item._id === id);
       setDrinkDetail(drink);
-      // setLoading(true);
-      // const drink = getDrinkList().find((item) => item._id === id);
-      // setDrinkDetail(drink);
-
-      // const list = (await getComments(id)).filter((item) => item.open_id !== userInfo.openId);
-
-      // setCommentList(list);
-
-      // const myComment = list.find((item) => item.open_id === userInfo.openId);
-      // setMyComment(myComment);
-
-      // setLoading(false);
     }
   });
 
@@ -74,15 +49,6 @@ export default function Detail() {
           </View>
           <View className="detail-page__content">
             <DrinkBaseInfo drink={drinkDetail} />
-            {/* <View className="detail-page__comment-info">
-              {loading ? (
-                <Loading />
-              ) : (
-                <Fragment>
-                  <Comment drink={drinkDetail} myComment={myComment} />
-                </Fragment>
-              )}
-            </View> */}
           </View>
           <View className="detail-page__operate">
             <AtButton type="primary" className="btn" onClick={handleSubmit}>

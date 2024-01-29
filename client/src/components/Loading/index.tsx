@@ -8,11 +8,12 @@ import { THEME_COLOR } from '@/constants';
 
 interface ILoadingProps {
   size?: number;
+  className?: string;
 }
-const Loading: FC<ILoadingProps> = ({ size = 50 }) => {
+const Loading: FC<ILoadingProps> = ({ className, size = 50 }) => {
   return (
     <View>
-      <AtActivityIndicator mode="center" color={THEME_COLOR} size={size} />
+      <AtActivityIndicator mode="center" className={className} color={THEME_COLOR} size={size} />
     </View>
   );
 };
