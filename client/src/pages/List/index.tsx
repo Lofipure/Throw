@@ -44,11 +44,13 @@ const List: FC = () => {
             <View className="item" key={index} onClick={() => handleGotoDetail(item)}>
               <Image src={getDrinkImage(cover)} className="item__cover" mode="widthFix" fadeIn />
               <View className="item__content">
-                <View className="title">
-                  {name}
-                  {is_spec ? <AtIcon value="star-2" className="icon" /> : null}
+                <View className='title-content'>
+                  <View className="title">
+                    {name}
+                    {is_spec ? <AtIcon value="star-2" className="icon" /> : null}
+                  </View>
+                  <View className="desc">{desc}</View>
                 </View>
-                <View className="desc">{desc}</View>
                 <View className="tag-list">
                   {tags.slice(0, 3).map((tag) => (
                     <AtTag key={`${tag}_${name}`} className="tag">
