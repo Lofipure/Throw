@@ -1,0 +1,57 @@
+.help-page {
+  height: 100%;
+  background: linear-gradient(to bottom, #0c208a 20%, #ffffff);
+  overflow: scroll;
+
+  &__navbar {
+    background-color: var(--theme-color);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15rpx 0;
+    .icon {
+      position: absolute;
+      top: 15rpx;
+      left: 15rpx;
+      height: 100%;
+      color: #fff;
+    }
+
+    .title {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+  &__banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  &__content {
+    margin: 21rpx 42rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #ffffff;
+    gap: 32rpx;
+
+    .block {
+      display: flex;
+      flex-direction: column;
+      gap: 7rpx;
+
+      text {
+        font-size: 1rem;
+      }
+      .title {
+        font-weight: 500;
+      }
+      .content {
+        color: #fff;
+      }
+    }
+  }
+}

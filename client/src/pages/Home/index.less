@@ -1,0 +1,48 @@
+.index-page {
+  height: 100%;
+  background: linear-gradient(to bottom, #0c208a 20%, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48rpx;
+  flex-direction: column;
+
+  &__banner {
+    margin-top: -20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .image {
+      width: 640rpx;
+    }
+  }
+
+  &__btn-group {
+    display: flex;
+    flex-direction: row;
+    gap: 48rpx;
+    align-items: center;
+
+    .btn {
+      flex: 1;
+      border-radius: 12rpx;
+    }
+
+    .normal-btn {
+      color: #0c208a;
+
+      .at-loading__ring {
+        border-color: var(--theme-color) transparent transparent transparent;
+      }
+    }
+  }
+
+  &__help-text {
+    position: absolute;
+    bottom: 36rpx;
+    color: var(--theme-color);
+    text-decoration: underline;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,71 @@
+@bgColor: #0c208a2b;
+
+.detail-page {
+  background: linear-gradient(to bottom, #0c208a, #ffffff);
+  height: 100%;
+  overflow: scroll;
+
+  &__nav-icon {
+    color: #fff;
+    margin-left: 10rpx;
+  }
+
+  &__cover {
+    width: 100%;
+    border-radius: 0 0 15rpx 15rpx;
+  }
+
+  &__banner {
+    position: sticky;
+    top: 0;
+  }
+
+  &__header {
+    position: absolute;
+  }
+
+  &__operate {
+    z-index: 10;
+    position: absolute;
+    bottom: 43rpx;
+    width: calc(100% - 43rpx);
+    margin: 0 22rpx;
+    .btn {
+      background-color: var(--theme-color);
+    }
+  }
+
+  &__comment-info {
+    backdrop-filter: blur(9rpx);
+    background-color: @bgColor;
+    box-shadow: 0 6rpx 15rpx rgba(0, 0, 0, 0.04);
+    margin: 0 22rpx;
+    padding: 15rpx 22rpx;
+    border-radius: 15rpx;
+    z-index: 10;
+    min-height: 80rpx;
+  }
+
+  &__content {
+    margin-top: -70rpx;
+    display: flex;
+    flex-direction: column;
+    gap: 22rpx;
+    margin-bottom: 152rpx;
+  }
+
+  .at-modal__container {
+    .content-simple {
+      display: flex;
+      justify-content: center;
+    }
+    .at-modal__content {
+      min-height: unset !important;
+    }
+    .at-modal__action {
+      button {
+        color: var(--theme-color);
+      }
+    }
+  }
+}
