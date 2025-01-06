@@ -29,7 +29,7 @@ const DrinkBaseInfo: FC<IDrinkBaseInfoProps> = ({ drink }) => (
     </View>
     <View className="base-info__attr">
       <View className="attr-item">
-        <View className="attr-item__label">🥵 好喝不?</View>
+        <View className="attr-item__label">😄 好喝不?</View>
         <AtRate className="attr-item__value" max={5} value={drink.attr.taste} />
       </View>
       <View className="attr-item">

@@ -34,10 +34,9 @@ export default function Help() {
           <Text>👋 如果你偶然发现了这个小程序，那么这个人很神秘，没有留下任何痕迹。</Text>
           <Text>🎉 但是祝你生来笨拙 不会假装 爱憎分明 一生坦诚。</Text>
         </View>
-        <View className='block'>
-          <Text className='title'>关于2024总结限定：</Text>
-          <Text>🌙 激烈的喧嚣震荡，沸沸扬扬。</Text>
-          <Text>👋🏻 为渺小的我们唱一支勇气的歌，在纵深的生命力永远蓬勃永远尽兴永远不留遗憾。</Text>
+        <View className="block">
+          <Text className="title">关于玫瑰：</Text>
+          <Text>💕 小王子坚定着只属于他的玫瑰。</Text>
         </View>
       </View>
     </View>
